@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+      <ion-back-button mode="md"></ion-back-button>
+    </ion-buttons> -->
+    <ion-title size="small">Log in to your account </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="login-content">
+  <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+    <ion-list class="inputs-list" lines="full">
+      <ion-label>Email</ion-label>
+      <ion-item class="input-item" lines="none">
+        <ion-input class="ion-input" type="email" placeholder="email" formControlName="email" clearInput autofocus="true"></ion-input>
+      </ion-item>
+
+      <ion-label>Password</ion-label>
+      <ion-item class="input-item" lines="none">
+          <ion-input type="password" class="ion-input" placeholder="Password" formControlName="password" clearInput></ion-input>   
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="login-btn" type="submit" expand="block" color="secondary" [disabled]="!loginForm.valid">Log In</ion-button>    
+
+      <ion-row class="other-auth-options-row">
+        <ion-button class="forgot-btn" color="danger" fill="clear" [routerLink]="['/forgot-password']">
+          Can't remember Password?
+        </ion-button>
+        <ion-button class="signup-btn" color="secondary" fill="clear" [routerLink]="['/register']">
+          Register
+        </ion-button>
+      </ion-row>
+    
+  </form>
+</ion-content>

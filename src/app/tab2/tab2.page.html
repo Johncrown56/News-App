@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+      <ion-back-button mode="md"></ion-back-button>
+    </ion-buttons> -->
+    <ion-title size="small">Create News</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="create-content">
+  <form [formGroup]="ContentForm">
+    <ion-list class="inputs-list" lines="full">
+      <ion-item class="input-item">
+        <ion-label position="stacked">Title</ion-label>
+        <ion-input type="text" class="ion-input" formControlName="title" required autofocus="true" clearInput></ion-input>
+      </ion-item>
+
+      <!-- Last Name -->
+      <ion-item class="input-item">
+        <ion-label position="stacked">Image</ion-label>
+        <ion-input type="file" class="ion-input" (change)="onFileChange($event)" id="file-input" accept="image/png, image/jpeg" required></ion-input>
+      </ion-item>
+
+      <ion-label>Description</ion-label>
+      <ion-item class="input-item">
+        <ion-textarea rows="6" cols="20" class="ion-textarea" placeholder="What's on your mind?" formControlName="description" required ></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="login-btn" type="submit" expand="block" color="secondary" [disabled]="!ContentForm.valid" (click)="createPost()">Create</ion-button>    
+    
+  </form>
+</ion-content>

@@ -1,0 +1,17 @@
+:host {
+    --page-margin: var(--app-broad-margin);
+    --page-background: var(--app-background-shade);
+  }
+
+  .profile-content {
+    --background: var(--page-background);
+    --padding-start: var(--page-margin);
+    --padding-end: var(--page-margin);
+    --padding-top: var(--page-margin);
+    --padding-bottom: var(--page-margin);
+
+    .text-center{
+        text-align: center;
+    }
+
+  }

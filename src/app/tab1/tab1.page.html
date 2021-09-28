@@ -1,0 +1,141 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="newspaper-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Hi, {{user.firstname}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<super-tabs
+  [activeTabIndex]="0"
+  [config]="{ avoidElements: true, maxDragAngle: 30 }"
+>
+  <super-tabs-toolbar slot="top" color="secondary" scrollable class="super-tabs-toolbar-custom">
+    <super-tab-button>
+      <ion-label color="tertiary">Top News</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label  color="tertiary">Personal</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label  color="tertiary">Politics</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label  color="tertiary">Business</ion-label>
+    </super-tab-button>
+  </super-tabs-toolbar>
+
+  <super-tabs-container>
+    <!-- TAB 0 -->
+    <super-tab>
+      <ion-content>
+        <div class="container-view">
+
+          <ion-card class="card-custom">
+            <ion-list>
+              <ion-list-header class="ion-list-header-custom">
+                <strong>Top News around the world</strong>
+              </ion-list-header>
+              <ion-item class="link-item-small" routerLink="/article" lines="none" *ngFor="let i of [0,1,2,3]">
+                <ion-thumbnail class="ion-thumbnail-custom" slot="start">
+                  <img src="{{'assets/image/' + '1' + '.png'}}" alt="">
+                </ion-thumbnail>
+                <ion-label class="ion-text-wrap">
+                  <div class="category-name">News Topic around the world</div>
+                  <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</h3>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+
+          
+        </div>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      
+
+      <ion-content>
+        <div class="container-view">
+
+          <!-- <ion-card class="card-custom"> -->
+            <ion-list>
+              <ion-list-header class="ion-list-header-custom">
+                <strong>Personal News</strong>
+              </ion-list-header>
+              <ion-card  lines="none" *ngFor="let item of content">
+                <ion-row (click)="navigate(item)" >
+                  <img src="{{imageURL+item.img}}" alt="{{item.title}}"/>
+                  <ion-card-header>
+                    <ion-card-title>{{item.title}}</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                         {{item.description | slice:0:120}} 
+                  <span *ngIf="item.description?.length > 100">...</span>
+                  </ion-card-content>
+                </ion-row>
+                
+
+                <ion-row>
+                  <ion-col class="ion-padding">
+                    {{item.date_created | date:'medium' }}
+                  </ion-col>
+                  <ion-col size="auto">
+                    <ion-button fill="clear" (click)="edit(item)" size="small" color="medium">
+                      <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+                    </ion-button>
+                    <ion-button fill="clear" (click)="delete(item)" size="small" color="danger">
+                      <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+
+              <ion-item>
+                <p *ngIf="content?.length == 0" class="empty-list-message">
+                  No news found. Please create one.
+                </p>
+              </ion-item>
+              
+            </ion-list>
+          <!-- </ion-card> -->
+
+          
+        </div>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <div class="container-view">
+
+          <ion-card class="card-custom">
+            <ion-list>
+              <ion-list-header class="ion-list-header-custom">
+                <strong>Politics</strong>
+              </ion-list-header>
+              <ion-item class="link-item-small" routerLink="/article" lines="none" *ngFor="let i of [0,1,2,3]">
+                <ion-thumbnail class="ion-thumbnail-custom" slot="start">
+                  <img src="{{'assets/image/' + '1' + '.png'}}" alt="">
+                </ion-thumbnail>
+                <ion-label class="ion-text-wrap">
+                  <div class="category-name">Title of News</div>
+                  <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</h3>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+
+          
+        </div>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      
+    </super-tab>
+  </super-tabs-container>
+</super-tabs>

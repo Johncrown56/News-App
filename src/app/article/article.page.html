@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="goToHome()">
+        <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="container-view">
+    <div class="card-thumbnail" [style.backgroundImage]="'url('+(imageUrl+data.img)+')'"></div>
+
+    <div class="article-header ion-padding">
+      <div class="article-title">
+        {{data.title}}
+      </div>
+      <div class="article-author">
+        By {{user.firstname}} {{user.lastname}}
+      </div>
+      <div class="article-timestamp">
+       Posted on {{data.date_created | date:'medium'}} 
+       <!-- Updated at 5:38 AM on Saturday, June 6 -->
+      </div>
+      <div class="header-divider"></div>
+    </div>
+
+    <div class="article-body ion-padding">
+      <p>{{data.description}}</p>
+    </div>
+</ion-content>

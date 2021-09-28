@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">Edit News</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="update-content">
+  <form [formGroup]="updatePostForm">
+    <ion-list class="inputs-list" lines="full">
+      <!-- First Name -->
+      <ion-item class="input-item">
+        <ion-label color="secondary" position="stacked">Title</ion-label>
+        <ion-input type="text" class="ion-input" formControlName="title" color="dark" clearInput autofocus="true" required></ion-input>
+      </ion-item>
+
+      <!-- Last Name -->
+      <ion-item class="input-item">
+        <ion-label color="secondary" position="stacked">Image</ion-label>
+        <ion-input type="file" class="ion-input" (change)="onFileChange($event)" id="file-input" accept="image/png, image/jpeg"></ion-input>
+      </ion-item>
+      
+      <!-- Description -->
+      <ion-label>Description</ion-label>
+      <ion-item class="input-item" >        
+        <ion-textarea rows="6" cols="20" class="ion-textarea" color="dark" formControlName="description" required></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="login-btn" type="submit" expand="block" color="secondary" [disabled]="!updatePostForm.valid" (click)="updatePost()">Update</ion-button>    
+    
+  </form>
+</ion-content>

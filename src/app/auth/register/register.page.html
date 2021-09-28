@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" text="" defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="signup-content">
+  <form [formGroup]="signupForm" (ngSubmit)="doRegister()">
+    <ion-list class="inputs-list" lines="full">
+
+      <!-- First Name -->
+      <ion-item class="input-item">
+        <ion-label position="stacked">First Name</ion-label>
+        <ion-input type="text" class="ion-input" formControlName="firstname" clearInput ></ion-input>
+      </ion-item>
+
+      <!-- Last Name -->
+      <ion-item class="input-item">
+        <ion-label position="stacked">Surname</ion-label>
+        <ion-input type="text" class="ion-input" formControlName="lastname" clearInput ></ion-input>
+      </ion-item>
+
+      <!-- Email Address -->
+      <ion-item class="input-item">
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="text" class="ion-input" formControlName="email" clearInput inputmode="email" ></ion-input>
+      </ion-item>
+
+    <!-- Password -->
+        <ion-item class="input-item">
+          <ion-label position="stacked">Password</ion-label>          
+            <ion-input type="password" class="ion-input" placeholder="Password" formControlName="password" ></ion-input>         
+        </ion-item>
+
+    </ion-list>
+
+    <ion-button class="signup-btn" type="submit" expand="block" [disabled]="!signupForm.valid">Create Account</ion-button>
+    <ion-row class="other-auth-options-row">
+      <ion-button class="login-btn" fill="clear" [routerLink]="['/login']">
+        Already have an account? <span style="color:#000000"> &nbsp;Log in</span>
+      </ion-button>
+    </ion-row>
+  </form>  
+  
+</ion-content>
